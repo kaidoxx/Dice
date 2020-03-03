@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="dice.css">
+  <script>
+    function rollDice() {
+       var die1 = document.getElementById('die1');
+       var die2 = document.getElementById('die2');
+       var status = document.getElementById('status');
+       /* Value for die1 and die2- generates a random number from 1 to 6 */
+       var d1 = Math.floor(Math.random() * 6) + 1;
+       var d2 = Math.floor(Math.random() * 6) + 1;
+       var diceTotal = d1 + d2;
+       /* Puts the value in the actual dice-not like in jumanji though */
+       die1.innerHTML = d1;
+       die2.innerHTML = d2;
+       status.innerHTML = "You rolled "+diceTotal+".";
+       if(d1 == d2) {
+         status.innerHTML += " DOUBLES! You get a free turn!!";
+       }
+    }
+  </script>
+  </head>
+
+  <body>
+    <div id="die1" class="dice">0</div>
+    <div id="die2" class="dice">0</div>
+    <button class="button" type="button" name="button" onclick="rollDice()">Roll Dice</button>
+    <h2 id="status" style="clear:left;"></h2>
+
+  </body>
+</html>
